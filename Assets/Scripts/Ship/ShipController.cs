@@ -101,7 +101,6 @@ public class ShipController : MonoBehaviour, IDamagable
         this.gameObject.GetComponent<Collider>().enabled = true;
         invencibility.SetActive(false);
         hp = initialHP;
-        StopAllCoroutines();
     }
     void PlaySoundOnDeath()
     {

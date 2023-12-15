@@ -22,15 +22,6 @@ public class AsteroidScript : Enemy
         hp = Random.Range(10, maxHP);
         initialHP = hp;
         this.transform.localScale = new Vector3(hp, hp, hp) * scaleMultiplier;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        IDamagable damagableComponent = other.gameObject.GetComponent<IDamagable>();
-        if (damagableComponent != null)
-        {
-            damagableComponent.GetDamage(100);
-        }
-    }
+    }   
 }
    

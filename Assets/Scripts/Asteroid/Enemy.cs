@@ -33,5 +33,13 @@ public class Enemy : MonoBehaviour, IDamagable
         {
             Destroy(gameObject);
         }
-    }   
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        IDamagable damagableComponent = other.gameObject.GetComponent<IDamagable>();
+        if (damagableComponent != null)
+        {
+            damagableComponent.GetDamage(100);
+        }
+    }
 }

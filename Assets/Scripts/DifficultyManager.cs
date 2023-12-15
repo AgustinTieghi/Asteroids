@@ -7,9 +7,8 @@ public class DifficultyManager : MonoBehaviour
 {
     private float timer;
     [Header("Difficulty Levels")]
-    [SerializeField] private int firstLevel;
-    [SerializeField] private int secondLevel;
-    [SerializeField] private int thirdLevel;
+    [SerializeField] private int raiseDifficultyInterval;
+    [SerializeField] private float raiseSpawnRateAmount;
     public static DifficultyManager instance;
 
     private void Awake()
@@ -28,24 +27,16 @@ public class DifficultyManager : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer > firstLevel)
+        if (timer > raiseDifficultyInterval)
         {
-            AsteroidSpawner.instance.spawnRate = 1.5f;
-        }
-
-        if (timer > secondLevel)
-        {
-            AsteroidSpawner.instance.spawnRate = 1f;
-        }
-
-        if (timer > thirdLevel)
-        {
-            AsteroidSpawner.instance.spawnRate = 0.5f;
+            AsteroidSpawner.instance.spawnRate -= raiseSpawnRateAmount;
+            print("Difficulty Raised!");
+            timer = 0;
         }
     }
 
     public float GetTimer()
     {
-        return timer;
+        return timer;   
     }
 }

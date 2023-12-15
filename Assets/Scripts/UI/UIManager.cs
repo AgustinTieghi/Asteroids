@@ -12,9 +12,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject mainUI;
-
+    private float timer;
     void Update()
     {
+        timer += Time.deltaTime;
         scoreText.text = "Score: " + ScoreManager.instance.GetScore();
         highScoreText.text = "High Score: " + ScoreManager.instance.GetHighScore();
         UpdateTimer();
@@ -29,8 +30,8 @@ public class UIManager : MonoBehaviour
 
     void UpdateTimer()
     {
-        float minutes = Mathf.FloorToInt(DifficultyManager.instance.GetTimer() / 60);
-        float seconds = Mathf.FloorToInt(DifficultyManager.instance.GetTimer() % 60);
+        float minutes = Mathf.FloorToInt(timer / 60);
+        float seconds = Mathf.FloorToInt(timer % 60);
         timerText.text = string.Format("{0:00} : {1:00}", minutes, seconds);
     }
 

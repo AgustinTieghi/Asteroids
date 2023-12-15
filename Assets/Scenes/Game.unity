@@ -1008,9 +1008,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef50e66b48388fd44a1c3388faf33dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstLevel: 30
-  secondLevel: 60
-  thirdLevel: 100
+  raiseDifficultyInterval: 30
+  raiseSpawnRateAmount: 0.5
 --- !u!4 &720867728
 Transform:
   m_ObjectHideFlags: 0
@@ -1402,7 +1401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highScoreKey: highScore
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 921047639}
 --- !u!4 &921047638
 Transform:
   m_ObjectHideFlags: 0
